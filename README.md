@@ -3,6 +3,8 @@
 
 https://github.com/thecodeholic/php-crash-course-2020/tree/final-version/14_product_crud
 
+https://github.com/TimFlier123/kerntaak2
+
 alleen crud 
 -   hele crud map 
 -   config 
