@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+.navbar {
+    height: 20vh;
+    width: 97vw;
+    background-color: black;
+}
+
+.navbar-logo {
+    background-image: url(./NETFISH_LogoWebsite.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.nav-button {
+    display: block;
+    height: 8vh;
+    width: 10vw;
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    float: right;
+    margin: 1% 1%;
+    font-size: larger;
+    line-height: 8vh;
+}
+
+.video-showcase {
+    width: 100%;
+    height: 40vh;
+    background-image: url(./placeholder.png);
+    background-color: grey;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.video-carrosel {
+    width: 90%;
+    height: 50vh;
+    padding: 3%
+}
+
+.video-banner {
+    width: 10%;
+    height: 20%;
+    /* background-color: grey; */
+    margin: 60px;
+}
+
+.video-info {
+    width: 14%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    line-height: 25vh;
+}
+
+.submit-button {
+    background-color: black;
+    border: none;
+    margin: 1px 20%;
+}
+
+.form-center {
+    width: 40vw;
+    height: 50vh;
+    margin: 1px 40vw;
+}
+
+label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    width: 400px;
+}
+
+input {
+    flex: 0 0 200px;
+    margin-left: 10px;
+    justify-content: flex-start;
+}
+
+table {
+    width: 60vw;
+    margin-left: 10vw;
+    margin-top: 5vh;
+}
+
+td {
+    text-align: left;
+}
+
+th {
+    text-align: left;
+}
+
+.right {
+    float: right;
+}
+
+.no-deco {
+    text-decoration: none;
+}
+
+.font-black {
+    color: black;
+}
