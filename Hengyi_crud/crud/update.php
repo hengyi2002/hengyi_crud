@@ -10,16 +10,13 @@ if(!$id){
 
 }  
     $sql = "SELECT * FROM movie WHERE id = :id";
-    try{
+
     $statement = $pdo->prepare($sql);
     $statement->bindValue(':id', $id);
     $statement->execute();
     $movie = $statement->fetch(PDO::FETCH_ASSOC);
-    }
-
-    catch(PDOException $e) {
-        echo "<script>console.log(\"No results found: " .$e->getMessage() . "\")</script>";
-    }
+    // var_dump($movie);
+    // }
 
     $title = $movie['title'];
     $url = $movie['url'];
@@ -34,24 +31,22 @@ if(isset($_POST['submit']) && !empty($_POST['submit'])){
     $year = $_POST['year'];
     $desc = $_POST['description'];
 
-
-    $sql = "INSERT INTO movie (title, url, year, description, distributor) 
-            VALUES (:title, :url, :year, :description, 1)";
-
     $statement = $pdo->prepare($sql);
 
-    try{
+        $statement = $pdo->prepare("UPDATE movie SET title = :title, 
+                                        url = :url, 
+                                        year = :year,
+                                        description = :description,  
+                                        distributor = 1 
+                                        WHERE id = :id");
         $statement->bindValue(':title', $title);
         $statement->bindValue(':url', $url);
         $statement->bindValue(':year', $year);
         $statement->bindValue(':description', $desc);
+        $statement->bindValue(':id', $id);
 
         $statement->execute();
-        echo "<script>location.href='movie_overview.php';</script>";
-    }
-    catch(PDOException $e) {
-            echo "<script>console.log(\"No results found: " .$e->getMessage() . "\")</script>";
-    }
+        header('Location: movie_overview.php');
 
 }
 
@@ -63,13 +58,14 @@ if(isset($_POST['submit']) && !empty($_POST['submit'])){
 
 <header>
 
-<!-- adds navbar and bootstap link -->
-<?php include_once('../view/navbar_crud.php') ?>
+    <!-- adds navbar and bootstap link -->
+    <?php include_once('../view/navbar_crud.php') ?>
 
 </header>
 
 <body>
     <h1>Update movie <b><?php echo $movie['title'] ?></b></h1>
+
     <form method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label>Titel</label><br>
@@ -87,7 +83,7 @@ if(isset($_POST['submit']) && !empty($_POST['submit'])){
             <label>Product description</label>
             <input type="text" name='description' class="form-control" value="<?php echo $desc ?>" required>
         </div>
-         <a href="movie_overview.php" class="btn btn-default">Back to products</a>
+        <a href="movie_overview.php" class="btn btn-default">Back to products</a>
         <input type="submit" name="submit" class="submit-button btn btn-primary" value="Toevoegen">
     </form>
 
