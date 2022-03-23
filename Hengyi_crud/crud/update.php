@@ -26,6 +26,7 @@ if(!$id){
     $year = $movie['year'];
     $desc = $movie['description'];
 
+//checks if the post has been submit, if it is select the data from the form and INSERT it
 if(isset($_POST['submit']) && !empty($_POST['submit'])){
 
     $title = $_POST['title'];
